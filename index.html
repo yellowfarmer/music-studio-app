@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>استودیو ترم</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="nav-left">
+        <button class="nav-button small">س</button>
+        <button class="nav-button small">س</button>
+        <button class="nav-button small">؟</button>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="#">رشد</a>
+        <a href="#">تمرین</a>
+        <a href="#">گام‌ها</a>
+        <a href="#">کتاب‌ها</a>
+        <a href="#">آموزشو</a>
+        <a href="#">خانه</a>
+      </nav>
+
+      <div class="brand-wrap">
+        <div class="brand-text">هم‌آوا</div>
+        <div class="brand-mark">♫</div>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <section class="player-card">
+        <div class="panel-topbar">
+          <button class="chevron-btn" aria-label="collapse">⌄</button>
+          <div class="song-title">رویشا، صدا: تمرین شماره 1</div>
+          <button class="ghost-btn">قطعات</button>
+        </div>
+
+        <div class="player-stage">
+          <div class="song-row">
+            <div class="song-meta">در حال ضبط صوت</div>
+            <div class="song-tag">موزیک</div>
+          </div>
+
+          <div class="track-wrap">
+            <div class="time-left">00:42</div>
+            <input id="seekBar" type="range" min="0" max="100" value="35" />
+            <div class="time-right">02:24</div>
+          </div>
+
+          <div class="control-row">
+            <div class="controlLeft">
+              <button class="icon-btn small" id="repeatBtn" aria-label="تکرار">↻</button>
+              <span class="volume-label">70%</span>
+              <input id="volumeBar" type="range" min="0" max="100" value="70" />
+            </div>
+
+            <div class="controlMid">
+              <button class="icon-btn" id="prevBtn" aria-label="قبلی">⏮</button>
+              <button class="icon-btn primary" id="playPauseBtn" aria-label="پخش">⏸</button>
+              <button class="icon-btn" id="nextBtn" aria-label="بعدی">⏭</button>
+            </div>
+
+            <label class="upload-btn" for="songUpload">
+              <span>بارگذاری</span>
+            </label>
+            <input id="songUpload" type="file" accept="audio/*" hidden />
+          </div>
+        </div>
+      </section>
+
+      <section class="meter-grid">
+        <article class="panel-card left-panel">
+          <div class="panel-header compact">
+            <div class="header-title">شناسایی صدا</div>
+            <button class="micro-btn" id="recordBtn" aria-label="ضبط صدا">◉</button>
+          </div>
+
+          <div class="signal-box">
+            <p>از نرم‌افزارهای آموزشی</p>
+            <p>C major - C4-C5</p>
+            <p>80 BPM - 4/4</p>
+            <p>مدت زمانی 00:42</p>
+          </div>
+
+          <div class="recordings-row">
+            <div class="recording-item active" data-recording="0">
+              <span>پخش دوباره</span>
+            </div>
+            <div class="recording-item" data-recording="1">
+              <span>ضبط صوت</span>
+            </div>
+          </div>
+
+          <div class="status-message" id="statusText">
+            برای شروع ضبط، روی دکمه سمت راست کلیک کنید.
+          </div>
+        </article>
+
+        <article class="panel-card right-panel">
+          <div class="panel-header compact">
+            <div class="header-title">محتوای آوا</div>
+            <button class="menu-btn" aria-label="menu">☰</button>
+          </div>
+
+          <div class="phrase-box">
+            <div class="phrase-text">نفس می‌کنم، <span>پـ</span>رونده به رور</div>
+            <div class="phrase-note">آرام، تمیز و کنترل‌شده</div>
+          </div>
+
+          <div class="score-box">
+            <div class="mini-grid">
+              <div class="beat">00:30</div>
+              <div class="beat">00:42</div>
+              <div class="beat">00:54</div>
+              <div class="beat">01:06</div>
+            </div>
+            <div class="staff-lines"></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="bottom-grid">
+        <article class="panel-card tuner-card">
+          <div class="panel-header compact">
+            <div class="header-title">سنجش tuner</div>
+            <button class="hint-btn" aria-label="کمک">?</button>
+          </div>
+
+          <div class="note-box">
+            <div class="note-value" id="noteName">A4</div>
+            <div class="note-freq" id="freqValue">441.0 Hz</div>
+          </div>
+
+          <div class="gauge-wrap">
+            <div class="gauge-scale">
+              <span class="meta-left">-50</span>
+              <span class="meta-right">+50</span>
+            </div>
+            <div class="gauge-bar">
+              <div class="gauge-center"></div>
+              <div class="gauge-needle" id="gaugeNeedle"></div>
+            </div>
+          </div>
+
+          <div class="gauge-status">
+            <span class="live-dot"></span>
+            <span>در حال بررسی</span>
+          </div>
+        </article>
+
+        <article class="panel-card pitch-card">
+          <div class="panel-header compact">
+            <div class="header-title">نقشه‌ی هارمونی</div>
+            <button class="hint-btn" aria-label="نقشه">⌁</button>
+          </div>
+
+          <div class="pitch-display">
+            <div class="pitch-name">C major</div>
+            <div class="pitch-scale">A4 • 440 Hz</div>
+            <div class="note-grid">
+              <span>A4</span>
+              <span>B4</span>
+              <span>C5</span>
+              <span>D5</span>
+              <span>E5</span>
+              <span>F5</span>
+              <span>G5</span>
+            </div>
+            <div class="staff-box">
+              <div class="staff-line"></div>
+              <div class="staff-line"></div>
+              <div class="staff-line"></div>
+              <div class="staff-line"></div>
+              <div class="staff-line"></div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <audio id="audioPlayer" controls hidden></audio>
+    <script src="app.js"></script>
+  </body>
+</html>
